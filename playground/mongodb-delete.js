@@ -22,20 +22,26 @@ MongoClient.connect('mongodb://192.168.11.23:27017/TodoApp', (err, db) => {
   //   console.log('Unable to fetch todos', err);
   // })
 
-  // db.collection('Users').find({
-  //   name: 'lamdor'
-  // }).toArray().then((docs) => {
-  //   console.log('Users');
-  //   console.log(JSON.stringify(docs, undefined, 2));
-  // }, (err) => {
-  //   console.log('Unable to fetch Users', err);
-  // })
+  // deleteMany
+  // db.collection('Todos').deleteMany({text:'Eat Lunch'}).then((result) => {
+  //   console.log(result);
+  // });
 
-  db.collection('Todos').find({text:'Eat Lunch'}).toArray().then((docs) => {
-    console.log(JSON.stringify(docs, undefined, 2));
-  }, (err) => {
-    console.log('Unable to fetch todos', err);
-  })
+  // deleteOne
+  // db.collection('Todos').deleteOne({text:'Eat Lunch'}).then((result) => {
+  //   console.log(result);
+  // });
+
+  // findOneAndDelete
+  // db.collection('Todos').findOneAndDelete({completed: false}).then((result) => {
+  //   console.log(result);
+  // });
+
+  db.collection('Users').findOneAndDelete({
+    _id: new ObjectID("123")
+  }).then((result) => {
+    console.log(JSON.stringify(result, undefined, 2));
+  });
 
   //db.close();
 });
