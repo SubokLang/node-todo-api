@@ -26,16 +26,11 @@ app.get('/todos', (req, res) => {
     res.send({todos});
   }, (e) => {
     res.status(400).send(e);
-  })
+  });
 });
 
 app.listen(3000, () => {
   console.log('Started on port 3000');
 });
 
-
-// newUser.save().then((doc) => {
-//   console.log(JSON.stringify(doc, undefined,2));
-// }, (e) => {
-//   console.log('Unable to save', e);
-// });
+module.exports = {app};
